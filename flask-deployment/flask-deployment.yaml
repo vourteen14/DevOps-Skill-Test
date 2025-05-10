@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment
+  labels:
+    app: devops
+    framework: flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops
+      framework: flask
+  template:
+    metadata:
+      labels:
+        app: devops
+        framework: flask
+    spec:
+      containers:
+      - name: devops
+        image: docker.io/vourteen14/devops-angga:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: "25m"
+          limits:
+            cpu: "250m"

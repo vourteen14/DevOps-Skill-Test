@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flask-ingress
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - app2.angga-sr.xyz
+    secretName: wildcard-cert
+  rules:
+  - host: app2.angga-sr.xyz
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: keda-interceptor-proxy
+            port:
+              number: 8080

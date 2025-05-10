@@ -1,0 +1,21 @@
+apiVersion: http.keda.sh/v1alpha1
+kind: HTTPScaledObject
+metadata:
+  name: flask-http-scaled-object
+spec:
+  hosts:
+    - "app2.angga-sr.xyz"
+  scaleTargetRef:
+    name: flask-deployment
+    kind: Deployment
+    apiVersion: apps/v1
+    service: flask-service
+    port: 80
+  replicas:
+    min: 2
+    max: 5
+  scalingMetric:
+    requestRate:
+      targetValue: 30
+      granularity: 1s
+      window: 10s
