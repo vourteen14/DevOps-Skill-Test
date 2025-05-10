@@ -1,9 +1,9 @@
 # Architecture Diagram
 
-Auto Scaling Diagram
+## Auto Scaling Diagram
 ![alt text](image/ausocalling-diagram.png)
 
-Centralize Monitoring & Logging Diagram
+## Centralize Monitoring & Logging Diagram
 ![alt text](image/centralize-monitoring-loggin.png)
 
 # Component
